@@ -3,11 +3,14 @@ import Home from "./page/home";
 import { Login } from "./page/login";
 import { Profile } from "./page/profile";
 import ToDoDetail from "./page/todoDetail";
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
-  // const [page, setPage] = useState("LOGIN");
+  const [nameLogin, setNameLogin] = useState("");
 
+  const handleAddNameLogin = (name) => {
+    setNameLogin(name);
+  };
   return (
     <Router>
       <Switch>
@@ -15,13 +18,13 @@ function App() {
           <ToDoDetail />
         </Route>
         <Route path="/todo/">
-          <Home />
+          <Home name={nameLogin} />
         </Route>
         <Route path="/profile">
           <Profile />
         </Route>
         <Route path="/">
-          <Login />
+          <Login addName={handleAddNameLogin} />
         </Route>
       </Switch>
     </Router>

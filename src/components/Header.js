@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import classes from "./Header.module.css";
 import { addTodo } from "../services/todoService";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 // import { addName } from "../redux/actionCreators";
 
-function Header({ onTodoAdded, name }) {
+function Header({ onTodoAdded, nameLogin }) {
   const [currentItem, setCurrentItem] = useState("");
   const [isAdding, setIsAdding] = useState(false);
   const handleChange = (value) => {
@@ -29,7 +29,7 @@ function Header({ onTodoAdded, name }) {
   return (
     <header className={classes.heading}>
       <h1>Tasks</h1>
-      <h1>Xin chào {name}</h1>
+      <h1>Xin chào {nameLogin}</h1>
       <input
         type="text"
         disabled={isAdding}
@@ -42,11 +42,4 @@ function Header({ onTodoAdded, name }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  console.log(state.addName.name);
-  return {
-    name: state.addName.name,
-  };
-};
-
-export default connect(mapStateToProps)(Header);
+export default Header;

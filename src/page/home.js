@@ -18,7 +18,7 @@ const tailLayout = {
     span: 16,
   },
 };
-function Home() {
+function Home({nameLogin}) {
   const [taskLists, setTaskLists] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -56,7 +56,7 @@ function Home() {
       "Loading..."
     ) : (
       <>
-        <Header onTodoAdded={handleToDoAdded} />
+        <Header onTodoAdded={handleToDoAdded} name={nameLogin} />
         <TaskList
           incompleteItems={inCompletedList}
           onChangeCompleteStatus={handleChangeCompleteStatus}

@@ -3,9 +3,9 @@ import "antd/dist/antd.css";
 import classes from "./login.module.css";
 import { Form, Input, Button, Checkbox } from "antd";
 import { useHistory } from "react-router-dom";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { addName } from "../redux/actionCreators";
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// import { connect } from "react-redux";
+// import { addName } from "../redux/actionCreators";
 const layout = {
   labelCol: {
     span: 8,
@@ -26,7 +26,7 @@ const users = [
   { name: "Hoang", email: "hoang@gmail.com", password: "456" },
   { name: "Minh", email: "minh@gmail.com", password: "789" },
 ];
-export const Login = ({ addName }) => {
+export function Login({ addName }) {
   let history = useHistory();
   const [password, setPassword] = useState("");
   const [user, setUser] = useState("");
@@ -119,13 +119,5 @@ export const Login = ({ addName }) => {
       </Form>
     </div>
   );
-};
-const mapStateToProps = (state) => {
-  console.log(state.addName);
-  return {
-    name: state.addName.name,
-  };
-};
-const mapDispatchToProps = { addName };
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);

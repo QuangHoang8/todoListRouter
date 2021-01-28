@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 
-const addName = function (state = { name }, action) {
+const handleAddName = function (state = { name: "" }, action) {
   switch (action.type) {
-    case "addName": {
+    case "addNameLogin": {
       return {
         name: action.payload.userLogin,
       };
@@ -11,4 +11,4 @@ const addName = function (state = { name }, action) {
       return state;
   }
 };
-export default combineReducers({ addName });
+export default combineReducers({ handleAddName });

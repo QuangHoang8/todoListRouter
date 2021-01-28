@@ -1,5 +1,5 @@
 export const addName = (name) => ({
-  type: "addName",
+  type: "addNameLogin",
   payload: {
     userLogin: name,
   },
